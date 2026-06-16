@@ -3,41 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reed AI</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <form id="upload-form">
 
-    <select id = "course" name="course">
-        <option>DBMS</option>
-        <option>Machine Learning</option>
-    </select>
+    <div class="container">
 
-    <select id="unit" name="unit">
-        <option value="1">Unit 1</option>
-        <option value="2">Unit 2</option>
-        <option value="3">Unit 3</option>
-    </select>
+        <div class="logo">
+            <h1>REED</h1>
+            <p>Your AI Study Assistant</p>
+        </div>
 
-    <select id="note_type" name="note_type">
-        <option>Lecture Notes</option>
-        <option>Revision Notes</option>
-        <option>Previous Year Paper</option>
-    </select>
+        <div class="card">
 
-    <input
-        id = "files"
-        type="file"
-        multiple
-        accept=".pdf"
-    >
+            <h2>Upload Notes</h2>
 
-    <button>
-        Upload
-    </button>
+            <form id="upload-form">
 
-</form>
+                <label>Course</label>
+                <select id="course">
+                    <option>DBMS</option>
+                    <option>Machine Learning</option>
+                    <option>Operating Systems</option>
+                </select>
 
-<script src="index.js"></script>
+                <label>Unit</label>
+                <select id="unit">
+                    <option value="1">Unit 1</option>
+                    <option value="2">Unit 2</option>
+                    <option value="3">Unit 3</option>
+                </select>
+
+                <label>Note Type</label>
+                <select id="note_type">
+                    <option>Lecture Notes</option>
+                    <option>Revision Notes</option>
+                    <option>Previous Year Paper</option>
+                </select>
+
+                <label class="upload-box">
+                    <input
+                        id="files"
+                        type="file"
+                        accept=".pdf"
+                    >
+                    <span>📄 Drop PDF or Click Here</span>
+                </label>
+
+                <button type="submit">
+                    Upload Notes
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Ask Questions</h2>
+
+            <div class="chat-box">
+                <div class="message ai">
+                    Upload notes and start asking questions.
+                </div>
+            </div>
+
+            <div class="input-row">
+                <input
+                    type="text"
+                    placeholder="Ask anything from your notes..."
+                >
+
+                <button>
+                    Ask
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

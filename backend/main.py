@@ -1,10 +1,8 @@
 from fastapi import UploadFile, File, Form
 from fastapi import FastAPI
 from backend.schemas import QueryRequest
-from backend.rag import(
-    initialize,
-    ask_rag
-)
+from backend.vectorization import initialize
+from skills.chat import ask_rag
 
 
 
@@ -39,29 +37,6 @@ UPLOAD_DIR = Path("uploads")
 
 UPLOAD_DIR.mkdir(exist_ok=True)
 
-# @app.post("/upload")
-# async def upload(
-#     course: str = Form(...),
-#     unit: int = Form(...),
-#     note_type: str = Form(...),
-#     files: list[UploadFile] = File(...)
-# ):
-
-#     saved_files = []
-
-#     for file in files:
-
-#         file_path = UPLOAD_DIR / file.filename
-
-#         with open(file_path, "wb") as f:
-#             f.write(await file.read())
-
-#         saved_files.append(str(file_path))
-
-#     return {
-#         "status": "success",
-#         "files": saved_files
-#     }
     
 @app.post("/upload")
 async def test_upload(
