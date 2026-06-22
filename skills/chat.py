@@ -21,13 +21,13 @@ def ask_rag(query_text: str):
     )
     promt = f"""You are a study assistant.
 
-Answer ONLY using the provided context.
+    Answer ONLY using the provided context.
 
-If the answer is not present in the context,
-reply exactly:
+    If the answer is not present in the context,
+    reply exactly:
 
-"I could not find that in the uploaded notes."
-Context: {context} \n\n Question: {query_text} \n\n Answer:"""
+    "I could not find that in the uploaded notes."
+    Context: {context} \n\n Question: {query_text} \n\n Answer:"""
     response = chat(
         model="qwen3:4b",
         messages=[

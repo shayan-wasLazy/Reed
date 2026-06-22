@@ -3,16 +3,25 @@ from fastapi import FastAPI
 from backend.schemas import QueryRequest
 from backend.vectorization import initialize
 from skills.chat import ask_rag
+from skills.createFF import createWorkspace, CreateFolder
+from contextlib import asynccontextmanager
 
 
 
 
-app = FastAPI()
 
 # @app.on_event("startup")
 # def startup():
 
 #     initialize()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Load the ML model
+    createWorkspace()
+    yield
+    
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def home():

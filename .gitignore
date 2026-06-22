@@ -2,5 +2,7 @@ data/
 uploads/
 .vscode/
 .env
-__pycache__/
+backend/__pycache__/
+skills/__pycache__/
 .venv/
+todo.md

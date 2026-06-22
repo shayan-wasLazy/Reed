@@ -17,7 +17,7 @@ from backend.qdrant_Client import client
 
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 
-doc_converter = DocumentConverter()
+converter = DocumentConverter()
 
 
 # The :memory: mode is a Python imitation of Qdrant's APIs for prototyping and CI.
@@ -31,7 +31,6 @@ client.set_sparse_model("Qdrant/bm25")
 def convert_md(files):
     documents, metadatas = [], []
     chuncker = HybridChunker(max_tokens=300)
-    converter = DocumentConverter()
     
     
     for i in tqdm(range(len(files))):
@@ -55,7 +54,7 @@ def convert_md(files):
             
             documents.append(embedding_text)
             metadatas.append(metadata)
-    
+    print("Conversion completed.")
     return documents, metadatas
 
 
@@ -67,6 +66,8 @@ def addVectors(documents, metadatas):
         metadata=metadatas,
         batch_size=64
     )
+    print("Vectors added successfully.")
+    
     
 def already_uploaded(filename):
 
@@ -99,6 +100,7 @@ def initialize(files):
 
             documents, metadatas = convert_md(files)
             addVectors(documents, metadatas)
+    print("Initialization completed.")
     
     
 
