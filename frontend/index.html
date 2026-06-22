@@ -3,87 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reed AI</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Reed</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="logo">
-            <h1>REED</h1>
-            <p>Your AI Study Assistant</p>
-        </div>
+    <!-- WORKSPACE -->
+    <aside class="workspace">
 
-        <div class="card">
+        <h1>Workspace</h1>
 
-            <h2>Upload Notes</h2>
+        <div id="workspace-tree"></div>
 
-            <form id="upload-form">
+    </aside>
 
-                <label>Course</label>
-                <select id="course">
-                    <option>DBMS</option>
-                    <option>Machine Learning</option>
-                    <option>Operating Systems</option>
-                </select>
+    <!-- EDITOR -->
+    <main class="editor">
 
-                <label>Unit</label>
-                <select id="unit">
-                    <option value="1">Unit 1</option>
-                    <option value="2">Unit 2</option>
-                    <option value="3">Unit 3</option>
-                </select>
+        <div class="editor-content">
 
-                <label>Note Type</label>
-                <select id="note_type">
-                    <option>Lecture Notes</option>
-                    <option>Revision Notes</option>
-                    <option>Previous Year Paper</option>
-                </select>
+            <h2>Welcome to Reed</h2>
 
-                <label class="upload-box">
-                    <input
-                        id="files"
-                        type="file"
-                        multiple
-                    >
-                    <span>📄 Drop PDF or Click Here</span>
-                </label>
-
-                <button type="submit">
-                    Upload Notes
-                </button>
-
-            </form>
+            <p>
+                Select a file from the workspace.
+            </p>
 
         </div>
 
-        <div class="card">
+    </main>
 
-            <h2>Ask Questions</h2>
+    <!-- CHAT -->
+    <div class="chat-wrapper">
 
-            <div class="chat-box">
-                <div class="message ai">
-                    Upload notes and start asking questions.
-                </div>
+        <button
+            class="toggle-btn"
+            id="toggleChat">
+            <
+        </button>
+
+        <aside
+            class="chat-panel"
+            id="chatPanel">
+
+            <div class="chat-history">
+
             </div>
 
-            <div class="input-row">
+            <div class="chat-input">
+
                 <input
                     type="text"
-                    placeholder="Ask anything from your notes..."
+                    placeholder="Chat with AI..."
                 >
 
-                <button>
-                    Ask
+                <button class="send-btn">
+                    ↑
                 </button>
+
             </div>
 
-        </div>
+        </aside>
 
     </div>
-    <script src="index.js"></script>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

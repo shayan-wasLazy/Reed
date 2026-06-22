@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 
 def createWorkspace():
@@ -29,3 +30,22 @@ def getfolderList():
             if os.path.isdir(os.path.join(path, folder)):
                 folderList.append(folder)
     return folderList
+
+
+def getWorkspace(path="Workspace"):
+
+    path = Path(path)
+
+    result = {}
+
+    for item in path.iterdir():
+
+        if item.is_dir():
+
+            result[item.name] = getWorkspace(item)
+
+        else:
+
+            result[item.name] = None
+
+    return result
